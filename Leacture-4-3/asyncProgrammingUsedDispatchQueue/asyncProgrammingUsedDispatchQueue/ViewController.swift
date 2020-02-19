@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         mainTableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.mainTableViewCellId)
         return mainTableView
     }()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
