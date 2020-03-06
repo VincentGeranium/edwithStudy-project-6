@@ -97,16 +97,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.getNameInfo = friend.name.full
         cell.getEmailInfo = friend.email
-        cell.getImage = nil
+        cell.mainImageView.image = nil
         
 //        cell.mainLabel.text = friend.name.full
 //        cell.subLabel.text = friend.email
 //        cell.mainImageView.image = nil
         
+        /// Background 에서 실행
         DispatchQueue.global().async {
             guard let imageURL: URL = URL(string: friend.picture.thumbnail) else { return }
             guard let imageData: Data = try? Data(contentsOf: imageURL) else { return }
-            
+            /// main thread 에서 실행
             DispatchQueue.main.async {
                 if let index = tableView.indexPath(for: cell) {
                     if index.row == indexPath.row {
